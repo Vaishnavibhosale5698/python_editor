@@ -1,0 +1,119 @@
+.App {
+    font-family: sans-serif;
+    color : rgb(73, 12, 97);
+  }
+  
+  /** ---------------------------- */
+  /** --- General ---------------- */
+  /** ---------------------------- */
+  /* textarea {
+    border: 1px solid #999;
+    width: 100%;
+    height: 20em;
+  } */
+  
+  /** ---------------------------- */
+  /** --- Code editor ------------ */
+  /** ---------------------------- */
+  .code-edit-container {
+    position: relative;
+    height: 700px;
+    width: 50%;
+    border: 2px solid rgb(99, 97, 97); 
+    margin: 1em 0;
+    background-color: hsl(212, 35%, 95%)  }
+
+  .output-window {
+    padding-left: 1em ;
+    position : relative;
+    height : 700px;
+    width : 50%;
+    margin : 1em 0;
+    background-color : rgb(193, 193, 218);
+    border: 2px solid rgb(99, 97, 97) ;
+    border-left: none;
+  }
+  
+  .code-input,
+  .code-syntax-edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* padding: 1rem; */
+    border: none;
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 0.8rem;
+    background: transparent;
+    white-space: pre-wrap;
+    line-height: 1.5em;
+    word-wrap: break-word;
+    font-size: 1rem;
+  }
+  
+  .code-input {
+    opacity: 1;
+    margin: 0;
+    top : 100;
+    /* color: hsl(0, 4%, 36%);  */
+    resize: none;
+   }
+   
+  .code-syntax-edit {
+    pointer-events: none;
+    z-index: 4;
+     margin: 0;
+    /* top:100; */
+    /* border: 1px solid red; */
+    overflow-y: auto; 
+  }
+
+  code {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 1rem;  
+     display: block;
+    color: hsl(0, 0%, 40%); 
+    font-size: 1rem;
+    font-family: "PT Mono", monospace;
+  }
+
+  /* .number {
+    align-items: initial;
+    background-color: initial;
+    border-radius: initial;
+    display: initial;
+    font-size: 1rem;
+    height: initial;
+    justify-content: initial;
+    margin-right: initial;
+    min-width: initial;
+    padding: initial;
+    text-align: initial;
+    vertical-align: inherit;
+  } */
+  
+  overrides
+   .code-edit-container :not(pre) > code[class*="language-"],
+  .code-edit-container pre[class*="language-"] {
+    background: transparent;
+    margin: 0;
+    width : 100%;
+  }
+   
+  .vs ::selection {
+    color: transparent;
+    background: transparent;
+    text-shadow: none;
+  }
+  
+  .vs ::-moz-selection {
+    color: transparent;
+    background: transparent;
+    text-shadow: none;
+  }
+  
+
