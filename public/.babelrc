@@ -1,6 +1,6 @@
 {
     "plugins": [
-      ["prismjs", {
+      ["highlight.js", {
         "languages": ["javascript", "css", "html"],
         "plugins": ["line-numbers"],
         "theme": "twilight",
