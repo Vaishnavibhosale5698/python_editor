@@ -37,26 +37,44 @@ const CodeEditor = props => {
     });
   }
 
+  // const handleExecute = () => {
+  //   fetch('https://api.jdoodle.com/v1/execute', {
+  //     method: 'POST',
+  //     mode: 'cors',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       "clientId": "d7f973e133f3dac779329dffd3344f4e",
+  //       "clientSecret": "b67c8484ea26ca17f703c931155c03357f641ef205ba477622d0eff6740c47ff",
+  //       "script": content,
+  //       "language": "python3",
+  //       "versionIndex": "3"
+  //     })
+  //   }).then(response => response.json())
+  //     .then(json => {
+  //       let codeOutputValue = (JSON.stringify(json.output).slice(1, -1)).replace(/\\n/g, '')
+  //       setCodeOutput(codeOutputValue)
+  //     })
+  //     .catch(error => console.log('Authorization failed : ' + error.message));
+  // }
+
   const handleExecute = () => {
-    fetch('https://api.jdoodle.com/v1/execute', {
+    console.log('hello')
+    fetch('http://localhost:8080/output', {
       method: 'POST',
-      mode: 'cors',
+      
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "clientId": "d7f973e133f3dac779329dffd3344f4e",
-        "clientSecret": "b67c8484ea26ca17f703c931155c03357f641ef205ba477622d0eff6740c47ff",
-        "script": content,
-        "language": "python3",
-        "versionIndex": "3"
+        "codeInput": content
       })
-    }).then(response => response.json())
-      .then(json => {
-        let codeOutputValue = (JSON.stringify(json.output).slice(1, -1)).replace(/\\n/g, '')
-        setCodeOutput(codeOutputValue)
-      })
-      .catch(error => console.log('Authorization failed : ' + error.message));
+    }).then(response =>response.text())
+        .then(json =>{
+           console.log('msg', json)
+           setCodeOutput(json)
+       })
   }
 
   useEffect(() => {
