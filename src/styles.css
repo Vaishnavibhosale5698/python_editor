@@ -1,33 +1,28 @@
 .App {
     font-family: sans-serif;
     color : rgb(73, 12, 97);
+    height: 90vh;
+    position: relative;
   }
-  
-  /** ---------------------------- */
-  /** --- General ---------------- */
-  /** ---------------------------- */
-  /* textarea {
-    border: 1px solid #999;
-    width: 100%;
-    height: 20em;
-    border: none;
-  } */
   
   /** ---------------------------- */
   /** --- Code editor ------------ */
   /** ---------------------------- */
   .code-edit-container {
     position: relative;
-    height: 700px;
+    height: 60%;
     width: 50%;
     border: 2px solid rgb(99, 97, 97); 
     margin: 1em 0;
-    background-color: hsl(212, 35%, 95%)  }
+    background-color: hsl(212, 35%, 95%);
+    display: flex;
+    flex-direction: column;  
+  }
 
   .output-window {
     padding-left: 1em ;
     position : relative;
-    height : 700px;
+    height : 60%;
     width : 50%;
     margin : 1em 0;
     background-color : rgb(193, 193, 218);
@@ -41,7 +36,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 86%;
+    height: 84%;
     /* padding: 1rem;  */
     border: none;
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -56,23 +51,41 @@
   .code-input {
     opacity: 1;
     margin: 0;
-    top : 100;
     padding: 1rem;
-    /* color: hsl(0, 4%, 36%);  */
     resize: none;
    }
    
   .code-syntax-edit {
     pointer-events: none;
     z-index: 4;
-     margin: 0;
-    /* top:100; */
-    /* border: 1px solid red; */
-    /* padding: 1.5rem; */
+    margin: 0;
     overflow-y: auto; 
     margin-top: 0.5rem;
     margin-left: 0.5rem;
+  }
 
+  .run-button-container {
+    position: absolute;
+    width: 100%; 
+    height: 10%;
+    top: 90%; 
+    border-top: 2px solid rgb(99, 97, 97);   
+  }
+
+  .run-button {
+    position: absolute;
+    width: 25%;
+    height: 80%;
+    left: 5%;
+    top: 10%;
+    font-size: 1rem; 
+  }
+
+  .loader {
+    position: absolute;
+    height: 80%;
+    left: 30%; 
+    top: 10%; 
   }
 
   code {
@@ -91,22 +104,7 @@
      background: transparent;
      font-size: 1rem;
      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-     }
-
-  /* .number {
-    align-items: initial;
-    background-color: initial;
-    border-radius: initial;
-    display: initial;
-    font-size: 1rem;
-    height: initial;
-    justify-content: initial;
-    margin-right: initial;
-    min-width: initial;
-    padding: initial;
-    text-align: initial;
-    vertical-align: inherit;
-  } */
+  }
   
   overrides
    .code-edit-container :not(pre) > code[class*="language-"],
@@ -116,16 +114,3 @@
     width : 100%;
   }
    
-  /* .vs ::selection {
-    color: transparent;
-    background: transparent;
-    text-shadow: none;
-  }
-  
-  .vs ::-moz-selection {
-    color: transparent;
-    background: transparent;
-    text-shadow: none;
-  } */
-  
-
