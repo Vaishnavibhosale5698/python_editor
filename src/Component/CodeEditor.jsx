@@ -72,6 +72,7 @@ const CodeEditor = props => {
           <code class='python' className={`language-${props.language}`}>{content}</code>
         </pre>
 
+
         <div className="run-button-container">
           <button className="run-button"
             onClick={handleExecute}>Run Code>> </button>
