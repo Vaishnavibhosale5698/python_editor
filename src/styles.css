@@ -5,12 +5,15 @@
     position: relative;
   }
   
+  textarea{
+    outline: none;
+  }
   /** ---------------------------- */
   /** --- Code editor ------------ */
   /** ---------------------------- */
   .code-edit-container {
     position: relative;
-    height: 60%;
+    height: 70%;
     width: 50%;
     border: 2px solid rgb(99, 97, 97); 
     margin: 1em 0;
@@ -22,7 +25,7 @@
   .output-window {
     padding-left: 1em ;
     position : relative;
-    height : 60%;
+    height : 70%;
     width : 50%;
     margin : 1em 0;
     background-color : rgb(193, 193, 218);
@@ -35,8 +38,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 84%;
+    width: 99%;
+    height: 82%;
     /* padding: 1rem;  */
     border: none;
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;

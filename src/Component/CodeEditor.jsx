@@ -5,7 +5,7 @@ import python from 'highlight.js/lib/languages/python'
 editor.registerLanguage('python', python)
 
 const CodeEditor = props => {
-  const [content, setContent] = useState(props.content);
+  const [content, setContent] = useState('')
   const [codeOutput, setCodeOutput] = useState('');
   const [loader ,setLoaderValue] = useState(false)
 
@@ -34,19 +34,23 @@ const CodeEditor = props => {
   }
 
   const handleExecute = () => {
-    setLoaderValue(true);
+    if(content !== '') {
+      setLoaderValue(true);
+    }
+    
     fetch('http://localhost:8080/output', {
       method: 'POST',   
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "codeInput": content
+        "script": content
       })
     }).then(response =>response.text())
         .then(json =>{
            console.log('msg', json)
            setCodeOutput(json)
+           setLoaderValue(false)
        })
   }
 
@@ -69,7 +73,7 @@ const CodeEditor = props => {
         />
 
         <pre className="code-syntax-edit">
-          <code class='python' className={`language-${props.language}`}>{content}</code>
+          <code className={`language-${props.language}`}>{content}</code>
         </pre>
 
 
@@ -77,7 +81,7 @@ const CodeEditor = props => {
           <button className="run-button"
             onClick={handleExecute}>Run Code>> </button>
           {
-            loader === true && codeOutput === '' ?
+            loader === true ?
               <img className="loader"
                 src="https://media.giphy.com/media/2c85mEsTFONgM0sOQ/giphy.gif" alt="loading..." />
               : null
